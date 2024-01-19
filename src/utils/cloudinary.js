@@ -18,6 +18,7 @@ const uploadOnCloudinary = async (localFilePath) => {
         console.log("file has been uploaded successfully", response.url);
         return response;
     } catch (error) {
+        // removed the locally saved temp file as the upload operation got failed
         fs.unlinkSync(localFilePath);
         return null;
     }
